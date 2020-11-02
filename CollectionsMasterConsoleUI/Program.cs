@@ -98,21 +98,23 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("-------------------");
 
             //Create a method that will remove all odd numbers from the list then print results
-            Console.WriteLine("Odds Only!!");
+            Console.WriteLine("Evens Only!!");
 
             OddKiller(numberList);
             Console.WriteLine("------------------");
 
             //Sort the list then print results
             Console.WriteLine("Sorted Odds!!");
+            numberList.Sort();
+            NumberPrinter(numberList);
             
             Console.WriteLine("------------------");
 
             //Convert the list to an array and store that into a variable
-            
+            var myArray = numberList.ToArray();
 
             //Clear the list
-            
+            numberList.Clear();
 
             #endregion
         }
@@ -131,11 +133,11 @@ namespace CollectionsMasterConsoleUI
 
         private static void OddKiller(List<int> numberList)
         {
-           for(int i = 0; i < numberList.Count; i++)
+           for(int i = numberList.Count - 1; i >= 0; i--)
             {
                 if (numberList[i] % 2 != 0)
                 {
-                    numberList.Remove(numberList[i]);
+                    numberList.RemoveAt(i);
                 }
             }
                 
